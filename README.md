@@ -1,0 +1,53 @@
+# Optimus Engineering — static site
+
+Plain HTML/CSS, no build step. Everything served lives in `public/`.
+
+```
+public/
+  index.html     homepage (responsive: desktop / tablet / mobile)
+  404.html
+  styles.css
+  fonts/         self-hosted Barlow Condensed, IBM Plex Sans, IBM Plex Mono (latin)
+  favicon.svg
+  _headers       Cloudflare Pages response headers
+  robots.txt
+```
+
+## Before going live
+
+Replace placeholders in `public/index.html`:
+
+- `[YOUR-EMAIL]` (mailto links) and `[YOUR EMAIL]` (displayed address)
+- `[OFFICE ADDRESS]` (footer)
+
+## Images
+
+Originals (PNG) live in `assets-src/images/` — not deployed. Web versions (WebP) live in `public/images/`.
+Gallery tiles are fixed shapes and crop photos to fit, so source sizes don't need to match.
+To add or replace a photo, put the original in `assets-src/images/` and convert:
+
+```bash
+magick assets-src/images/my_photo.png -resize '1600x>' -strip -quality 82 public/images/my-photo.webp
+```
+
+Images are cached for 7 days (`_headers`); use a new filename if you replace a photo and need it to show immediately.
+
+## Preview locally
+
+```bash
+npx serve public
+```
+
+## Deploy — Cloudflare Pages
+
+**Option A: Git integration (auto-deploy on push)**
+Push this repo to GitHub/GitLab → Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git.
+Build command: *(none)* · Build output directory: `public`.
+
+**Option B: Direct upload via Wrangler**
+
+```bash
+npx wrangler pages deploy public --project-name optimus-engineering
+```
+
+Custom domain: Pages project → Custom domains → add domain.
