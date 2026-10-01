@@ -115,6 +115,8 @@ svg { display: block; }
 .exp-title { font-size: 30px; font-weight: 600; }
 .exp-card p { font-size: 16px; line-height: 1.6; color: var(--dark-text); }
 .proven { display: flex; flex-direction: column; gap: 24px; border-top: 1px solid var(--dark-line); padding-top: 48px; }
+/* Standalone band right after the hero; the creds strip below continues the dark block. */
+.proven-top { border-top: 0; padding-top: 72px; padding-bottom: 32px; }
 /* Photo gallery: every tile is a fixed shape; photos are cropped to fit (object-fit: cover). */
 .gallery { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
 .shot { position: relative; margin: 0; aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden; background: #1C2638; }
@@ -218,6 +220,7 @@ svg { display: block; }
   .exp-title { font-size: 20px; line-height: 1.05; }
   .exp-card p { font-size: 14px; line-height: 1.5; }
   .proven { gap: 14px; padding-top: 28px; }
+  .proven-top { padding-top: 48px; padding-bottom: 16px; }
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 14px; }
   .shot-wide { aspect-ratio: 16 / 9; }
   .shot figcaption { font-size: 10px; padding: 28px 10px 10px; }
