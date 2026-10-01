@@ -1,4 +1,4 @@
-name = "optimus-engineering"
+name = 'oesb-static-site'
 compatibility_date = "2026-10-01"
 
 # Static site served by Workers static assets (no Worker script).
