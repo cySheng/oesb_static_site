@@ -1,3 +1,8 @@
 name = "optimus-engineering"
-pages_build_output_dir = "public"
 compatibility_date = "2026-10-01"
+
+# Static site served by Workers static assets (no Worker script).
+# _headers in public/ is applied; unknown paths get public/404.html.
+[assets]
+directory = "./public"
+not_found_handling = "404-page"

@@ -38,16 +38,18 @@ Images are cached for 7 days (`_headers`); use a new filename if you replace a p
 npx serve public
 ```
 
-## Deploy — Cloudflare Pages
+## Deploy — Cloudflare Workers (static assets)
 
-**Option A: Git integration (auto-deploy on push)**
-Push this repo to GitHub/GitLab → Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git.
-Build command: *(none)* · Build output directory: `public`.
+`wrangler.toml` serves `public/` as static assets; no Worker script.
 
-**Option B: Direct upload via Wrangler**
+**Git integration (auto-deploy on push):** Cloudflare dashboard → Workers & Pages → Create → Import a repository.
+Build command: *(none)* · Deploy command: `npx wrangler deploy`.
+The Worker name in the dashboard must match `name` in `wrangler.toml`.
+
+**Manual deploy:**
 
 ```bash
-npx wrangler pages deploy public --project-name optimus-engineering
+npx wrangler deploy
 ```
 
-Custom domain: Pages project → Custom domains → add domain.
+Custom domain: Worker → Settings → Domains & Routes → add domain.
